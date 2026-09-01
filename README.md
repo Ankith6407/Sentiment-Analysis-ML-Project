@@ -134,22 +134,16 @@ Sentiment-Analysis-ML-Project/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
+https://github.com/Ankith6407/Sentiment-Analysis-ML-Project
 ```
 
-### 2. Navigate to the Project Directory
-
-```bash
-cd YOUR-REPOSITORY-NAME
-```
-
-### 3. Install Required Libraries
+### 2. Install Required Libraries
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the Streamlit Application
+### 3. Run the Streamlit Application
 
 ```bash
 streamlit run app.py
