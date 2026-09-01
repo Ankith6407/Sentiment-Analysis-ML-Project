@@ -1,201 +1,257 @@
-# 💬 SentimentIQ: Machine Learning-Based Sentiment Analysis
+# 💬 SentimentIQ – Machine Learning Sentiment Analysis
 
 ## 📌 Project Overview
 
-SentimentIQ is a Machine Learning and Natural Language Processing (NLP) project designed to classify textual data into different sentiment categories.
+SentimentIQ is an end-to-end Natural Language Processing and Machine Learning project designed to classify textual data into sentiment categories.
 
-The application analyzes user-provided text and predicts whether the sentiment expressed is:
+The project analyzes user-provided text such as product reviews, comments, and feedback and predicts the overall sentiment.
+
+The application classifies text into the following three categories:
 
 - 😊 Positive
 - 😐 Neutral
 - 😞 Negative
 
-The project uses **TF-IDF Vectorization** for text feature extraction and **Linear Support Vector Machine (Linear SVM)** as the final classification model.
-
-An interactive web application was developed using **Streamlit**, allowing users to enter text and receive real-time sentiment predictions.
+The final model was selected after evaluating and comparing multiple machine learning algorithms. The trained model is integrated into an interactive Streamlit web application for real-time sentiment prediction.
 
 ---
 
-## 🎯 Project Objective
+## 🎯 Project Objectives
 
-The main objective of this project is to build and evaluate multiple Machine Learning models for sentiment classification and select the best-performing model based on evaluation metrics.
+The main objectives of this project are:
 
-The workflow includes:
-
-- Data loading and understanding
-- Exploratory Data Analysis (EDA)
-- Data preprocessing
-- Text cleaning
-- Feature extraction using TF-IDF
-- Training multiple Machine Learning models
-- Model evaluation and comparison
-- Final model selection
-- Model serialization
-- Interactive deployment using Streamlit
+- Perform Exploratory Data Analysis (EDA) on the sentiment dataset.
+- Clean and preprocess textual data.
+- Convert text into numerical features using TF-IDF Vectorization.
+- Train and compare multiple Machine Learning classification models.
+- Evaluate models using appropriate classification metrics.
+- Select the best-performing model.
+- Save the trained model and TF-IDF vectorizer.
+- Build an interactive Streamlit application for real-time sentiment prediction.
+- Deploy the application for practical use.
 
 ---
 
-## 📊 Exploratory Data Analysis
+## 📊 Machine Learning Models Evaluated
 
-The dataset was analyzed to understand its overall structure and quality.
-
-The EDA process included:
-
-- Dataset shape analysis
-- Data type inspection
-- Missing value analysis
-- Duplicate value checking
-- Sentiment class distribution analysis
-- Text length analysis
-- Word count analysis
-- Visualization of sentiment distribution
-
-These steps helped understand the characteristics of the dataset before model development.
-
----
-
-## 🧹 Data Preprocessing
-
-The textual data was prepared for Machine Learning using appropriate preprocessing techniques.
-
-The preprocessing workflow included:
-
-- Text cleaning
-- Converting text into a suitable format
-- Removing unnecessary characters
-- Preparing the target sentiment variable
-- Splitting the dataset into training and testing sets
-
----
-
-## 🔤 Feature Engineering
-
-The text data was converted into numerical features using:
-
-### TF-IDF Vectorization
-
-**TF-IDF (Term Frequency-Inverse Document Frequency)** was used to transform text into numerical feature vectors.
-
-TF-IDF helps identify important words based on:
-
-- Their frequency within a document
-- Their importance across the complete dataset
-
-The resulting feature vectors were used as input for the Machine Learning models.
-
----
-
-## 🤖 Machine Learning Models Evaluated
-
-A total of **6 Machine Learning classification models** were evaluated:
+The following six machine learning models were trained and evaluated:
 
 1. Logistic Regression
 2. Multinomial Naive Bayes
 3. Bernoulli Naive Bayes
 4. Linear Support Vector Machine (Linear SVM)
 5. Random Forest Classifier
-6. K-Nearest Neighbors Classifier
+6. K-Nearest Neighbors (KNN)
 
-The models were compared using multiple evaluation metrics.
+After comparing the model performance, **Linear Support Vector Machine (Linear SVM)** was selected as the final model.
 
 ---
 
-## 📈 Model Performance
+## 🏆 Final Model Performance
 
-The following metrics were used for model evaluation:
+| Model | Accuracy | Weighted F1 Score |
+|---|---:|---:|
+| Linear SVM | **78.82%** | **75.99%** |
+
+The Linear SVM model achieved the highest accuracy among the evaluated models and was selected as the final model for deployment.
+
+---
+
+## 🧠 Text Processing
+
+The project uses **TF-IDF (Term Frequency–Inverse Document Frequency) Vectorization** to convert textual data into numerical features.
+
+TF-IDF helps represent the importance of words in individual documents relative to the complete dataset.
+
+### Workflow
+
+```text
+Input Text
+    ↓
+Text Preprocessing
+    ↓
+TF-IDF Vectorization
+    ↓
+Linear SVM Model
+    ↓
+Sentiment Prediction
+```
+
+---
+
+## 🔍 Model Evaluation Metrics
+
+The machine learning models were evaluated using the following metrics:
 
 - Accuracy
 - Precision
 - Recall
 - F1 Score
 
-### Model Comparison
+### Why these metrics?
 
-| Model | Accuracy | F1 Score |
-|---|---:|---:|
-| Linear SVM | **78.82%** | **75.99%** |
-| Logistic Regression | 78.47% | 73.17% |
-| Bernoulli Naive Bayes | 76.39% | 72.28% |
-| K-Nearest Neighbors | 74.31% | 71.52% |
-| Random Forest | 75.69% | 69.98% |
-| Multinomial Naive Bayes | 74.65% | 68.82% |
+- **Accuracy** measures the overall percentage of correct predictions.
+- **Precision** measures how accurate the positive predictions are.
+- **Recall** measures how well the model identifies relevant sentiment classes.
+- **F1 Score** provides a balance between Precision and Recall.
 
 ---
 
-## 🏆 Final Model
+## 🚀 Streamlit Application
 
-After comparing all six models, **Linear Support Vector Machine (Linear SVM)** was selected as the final model.
-
-### Final Model Performance
-
-| Metric | Score |
-|---|---:|
-| Test Accuracy | **78.82%** |
-| Weighted F1 Score | **75.99%** |
-
-Linear SVM achieved the best overall performance among the evaluated models.
-
----
-
-## ⚠️ Model Generalization Analysis
-
-The final model was also evaluated by comparing training and testing performance.
-
-| Model | Training Accuracy | Testing Accuracy | F1 Score | Generalization Gap |
-|---|---:|---:|---:|---:|
-| Linear SVM | 100.00% | 78.82% | 75.99% | 21.18% |
-
-The difference between training and testing accuracy indicates that the model may have some level of overfitting. However, Linear SVM was retained as the final model because it achieved the best test performance among the evaluated models.
-
----
-
-## 🌐 Streamlit Application
-
-An interactive web application was developed using **Streamlit**.
+The trained Linear SVM model and TF-IDF vectorizer are integrated into a Streamlit web application.
 
 The application allows users to:
 
-- Enter custom text
-- Use pre-defined sentiment examples
-- Analyze text sentiment
-- View the predicted sentiment
-- View normalized model decision scores
-- Track session prediction history
-- Clear input text and session history
+- Enter custom text for sentiment analysis.
+- Use quick example reviews.
+- Predict Positive, Neutral, or Negative sentiment.
+- View model decision scores.
+- View session prediction history.
+- Clear the input and prediction history.
+- Access technical information about the model.
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
 Sentiment-Analysis-ML-Project/
 │
 ├── app.py
+├── requirements.txt
 ├── linear_svm_sentiment_model.pkl
 ├── tfidf_vectorizer.pkl
-├── requirements.txt
 ├── README.md
-├── Sentiment_Analysis.ipynb
-└── .gitignore
+├── .gitignore
+└── Sentiment_Analysis.ipynb
+```
 
+---
 
+## ⚙️ Installation
 
+### 1. Clone the Repository
 
-Application Features
-Enter custom text for sentiment analysis
-Quick example reviews
-Positive, Neutral, and Negative sentiment prediction
-Model decision score visualization
-Session prediction history
-Interactive Streamlit interface
-Workflow
-Load and explore the dataset
-Perform text preprocessing
-Convert text into numerical features using TF-IDF
-Train and compare six machine learning models
-Select the best-performing model
-Save the trained model and TF-IDF vectorizer
-Build and deploy the application using Streamlit
-Author
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME.git
+```
 
-Ankith
+### 2. Navigate to the Project Directory
+
+```bash
+cd YOUR-REPOSITORY-NAME
+```
+
+### 3. Install Required Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Streamlit Application
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser.
+
+---
+
+## 🖥️ Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Joblib
+- Natural Language Processing (NLP)
+- TF-IDF Vectorization
+- Linear Support Vector Machine
+- Streamlit
+- GitHub
+
+---
+
+## 📈 Model Comparison
+
+| Model | Accuracy (%) | Precision (%) | Recall (%) | F1 Score (%) |
+|---|---:|---:|---:|---:|
+| Linear SVM | **78.82** | 75.39 | 78.82 | **75.99** |
+| Logistic Regression | 78.47 | 74.78 | 78.47 | 73.17 |
+| Bernoulli Naive Bayes | 76.39 | 73.32 | 76.39 | 72.28 |
+| K-Nearest Neighbors | 74.31 | 69.95 | 74.31 | 71.52 |
+| Random Forest | 75.69 | 65.15 | 75.69 | 69.98 |
+| Multinomial Naive Bayes | 74.65 | 65.71 | 74.65 | 68.82 |
+
+---
+
+## 💡 Example Prediction
+
+### Input
+
+```text
+This product is excellent and I really enjoyed using it.
+```
+
+### Output
+
+```text
+Predicted Sentiment: Positive
+```
+
+---
+
+## 💾 Saved Model Files
+
+The following trained resources are saved and used by the Streamlit application:
+
+- `linear_svm_sentiment_model.pkl`
+- `tfidf_vectorizer.pkl`
+
+These files allow the application to make predictions without retraining the model every time the application runs.
+
+---
+
+## 🔮 Future Improvements
+
+Potential improvements for the project include:
+
+- Hyperparameter optimization using GridSearchCV or RandomizedSearchCV.
+- Advanced text preprocessing and feature engineering.
+- Experimenting with n-grams and different TF-IDF configurations.
+- Using deep learning models such as LSTM.
+- Experimenting with transformer-based models such as BERT.
+- Adding prediction confidence visualization.
+- Deploying the application on a cloud platform.
+
+---
+
+## 👨‍💻 Author
+
+**Ankith**
+
+Aspiring Data Scientist | Machine Learning | Natural Language Processing
+
+---
+
+## ⭐ Conclusion
+
+This project demonstrates an end-to-end Machine Learning workflow, including:
+
+- Exploratory Data Analysis
+- Text preprocessing
+- Feature extraction using TF-IDF
+- Training multiple Machine Learning models
+- Model comparison and evaluation
+- Final model selection
+- Model serialization
+- Streamlit application development
+- Deployment preparation
+
+The final **Linear Support Vector Machine model achieved 78.82% test accuracy** and was selected as the final model after comparing six different machine learning algorithms.
+
+---
+
+⭐ If you found this project useful, consider giving the repository a star!
