@@ -177,3 +177,25 @@ Sentiment-Analysis-ML-Project/
 ├── README.md
 ├── Sentiment_Analysis.ipynb
 └── .gitignore
+
+
+
+
+Application Features
+Enter custom text for sentiment analysis
+Quick example reviews
+Positive, Neutral, and Negative sentiment prediction
+Model decision score visualization
+Session prediction history
+Interactive Streamlit interface
+Workflow
+Load and explore the dataset
+Perform text preprocessing
+Convert text into numerical features using TF-IDF
+Train and compare six machine learning models
+Select the best-performing model
+Save the trained model and TF-IDF vectorizer
+Build and deploy the application using Streamlit
+Author
+
+Ankith
